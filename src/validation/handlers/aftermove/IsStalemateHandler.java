@@ -19,9 +19,7 @@ public class IsStalemateHandler extends MoveHandler {
             hasMoves=true;
         }
         if(!hasMoves){
-            System.out.println("STALEMATE !");
-            System.out.println("DRAW !");
-            gameVariables.setGameStatus(GameStatus.OVER);
+            gameVariables.setGameStatus(GameStatus.STALEMATE);
         }
         undoTestIfMoveIsDone(gameVariables,move,true);
         if(nextHandler!=null)

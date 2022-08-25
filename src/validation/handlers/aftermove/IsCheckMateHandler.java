@@ -21,9 +21,7 @@ public class IsCheckMateHandler extends MoveHandler {
         }
         undoTestIfMoveIsDone(gameVariables,move,true);
         if(checkMate){
-            System.out.println("CHECKMATE !");
-            System.out.println(gameVariables.getCurrentPlayer().getName()+" WON!");
-            gameVariables.setGameStatus(GameStatus.OVER);
+            gameVariables.setGameStatus(GameStatus.CHECKMATE);
         }
         if(nextHandler!=null)
             nextHandler.handleMove( gameVariables,move);

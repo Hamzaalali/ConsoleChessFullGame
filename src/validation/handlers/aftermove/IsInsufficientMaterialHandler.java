@@ -17,16 +17,14 @@ public class IsInsufficientMaterialHandler extends MoveHandler {
         List<Square> myOccupiedSquares=board.getOccupiedSquares(gameVariables.isWhiteTurn());
         List<Square> enemyOccupiedSquares=board.getOccupiedSquares(!gameVariables.isWhiteTurn());
         boolean insufficientMaterial=true;
-        if(insufficientMaterial(myOccupiedSquares)==false){
+        if(!insufficientMaterial(myOccupiedSquares)){
             insufficientMaterial=false;
         }
-        if(insufficientMaterial(enemyOccupiedSquares)==false){
+        if(!insufficientMaterial(enemyOccupiedSquares)){
             insufficientMaterial=false;
         }
         if(insufficientMaterial){
-            System.out.println("INSUFFICIENT MATERIAL!");
-            System.out.println("DRAW!");
-            gameVariables.setGameStatus(GameStatus.OVER);
+            gameVariables.setGameStatus(GameStatus.INSUFFICIENTMATERIAL);
         }
         undoTestIfMoveIsDone(gameVariables,move,false);
         if(nextHandler!=null)

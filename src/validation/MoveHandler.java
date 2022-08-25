@@ -4,6 +4,7 @@ import board.Board;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
+import exception.InvalidPieceMoveException;
 import validation.handlers.beforemove.IsMyKingInCheckHandler;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public abstract class MoveHandler {
         if(nextHandler!=null)
             nextHandler.handleMove( gameVariables,move);
         else
-            throw new IllegalArgumentException();
+            throw new InvalidPieceMoveException();
     }
     public boolean canMove(GameVariables gameVariables, Board board) {
         boolean canMove=false;
@@ -45,9 +46,7 @@ public abstract class MoveHandler {
                         isMyKingInCheckHandler.handleMove(gameVariables,testMove);
                         canMove=true;
                     }catch (Exception ignored){
-
                     }
-
                 }
             }
         }

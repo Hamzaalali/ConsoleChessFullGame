@@ -4,9 +4,6 @@ import board.Move;
 import exception.InvalidInputFormatException;
 import exception.PieceDoesntExistException;
 import piece.Piece;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -32,6 +29,18 @@ public class ChessGame {
                 System.out.println(e.getMessage());
                 System.out.println("Try Again,");
             }
+        }
+        if(gameVariables.gameStatus==GameStatus.CHECKMATE){
+            System.out.println("CHECKMATE!");
+            System.out.println(gameVariables.getEnemyPlayer().getName()+" WON!");
+        }
+        if(gameVariables.gameStatus==GameStatus.INSUFFICIENTMATERIAL){
+            System.out.println("INSUFFICIENT MATERIAL!");
+            System.out.println("DRAW!");
+        }
+        if(gameVariables.gameStatus==GameStatus.STALEMATE){
+            System.out.println("STALEMATE!");
+            System.out.println("DRAW!");
         }
     }
     public void move(String move) {

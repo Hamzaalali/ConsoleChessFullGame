@@ -5,8 +5,6 @@ H
 src/board/Direction.java,4\5\458f2fd9ec7d3c6a940003a7cf5524d97627c5e1
 C
 src/board/Move.java,f\a\fa58924c0a9f858a5b49aae9172769b95956f3ae
-I
-src/chess/GameStatus.java,b\9\b946805a7619d721a3e9b717f0be873640b4c082
 L
 src/chess/GameVariables.java,9\c\9cf78c6d4bcdb891a1a3d886d2e2aa4074f5988d
 E
@@ -32,18 +30,8 @@ $src/validation/chains/KingChain.java,6\e\6e7530e66a7c89799b7c2cf698d2b3cc5c563
 V
 &src/validation/chains/KnightChain.java,0\a\0a075bcfacb39ccf9d3dbce85918f12b357082b1
 T
-$src/validation/chains/PawnChain.java,d\1\d1583d5473b1ecd98547d96f932e0606e60b2cd4
-T
 $src/validation/chains/RockChain.java,c\9\c962f0c967a06a3bd8897ce2b9b707ffe1b3faa2
 U
 %src/validation/chains/QueenChain.java,9\f\9fbd60221facd0fcf4f3e5420fa6b19c519d7486
 m
 =src/validation/handlers/aftermove/CompleteTheMoveHandler.java,c\9\c9e5c80792c5f8cfd92c0b2d78697f9ee91129bd
-i
-9src/validation/handlers/aftermove/IsCheckMateHandler.java,4\6\46759fdf85631cf47af90fb42d6fdda93b4ddd83
-n
->src/validation/handlers/aftermove/IsEnemyKingCheckHandler.java,2\a\2a3c54ae638f0f7c4234c4022db88dbd1e54f986
-t
-Dsrc/validation/handlers/aftermove/IsInsufficientMaterialHandler.java,1\7\17742b7d41fe749310ab574dc48f4b89dea5dff4
-i
-9src/validation/handlers/aftermove/IsStalemateHandler.java,2\7\27139a90ad99e1a565901299f651e8dc4b34a47d

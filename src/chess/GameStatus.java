@@ -1,5 +1,5 @@
 package chess;
 
 public enum GameStatus {
-    RUNNING,OVER
+    RUNNING,CHECKMATE,STALEMATE, INSUFFICIENTMATERIAL
 }

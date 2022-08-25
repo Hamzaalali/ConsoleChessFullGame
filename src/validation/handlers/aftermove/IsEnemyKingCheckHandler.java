@@ -28,9 +28,7 @@ public class IsEnemyKingCheckHandler extends MoveHandler {
         }
         gameVariables.getEnemyPlayer().setInCheck(isCheck);
         undoTestIfMoveIsDone(gameVariables,move,false);
-
         if(nextHandler!=null)
             nextHandler.handleMove( gameVariables,move);
-
     }
 }

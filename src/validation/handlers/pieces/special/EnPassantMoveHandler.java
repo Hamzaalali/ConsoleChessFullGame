@@ -4,7 +4,6 @@ import board.Board;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.InvalidPieceMoveException;
 import validation.MoveHandler;
 import board.Direction;
 
@@ -37,10 +36,7 @@ public class EnPassantMoveHandler extends MoveHandler {
             System.out.println("EN PASSANT !");
             return;
         }
-        if(nextHandler!=null)
-            nextHandler.handleMove( gameVariables, move);
-        else
-            throw new InvalidPieceMoveException();
+        checkForNextHandler(gameVariables,move);
     }
     boolean isEnPassant(Move move,Direction attackRightDirection,Direction attackLeftDirection){
         return move.getDirection() == attackRightDirection || move.getDirection() == attackLeftDirection && move.getSteps() == 1;

@@ -3,11 +3,8 @@ package validation.handlers.pieces.normalmove;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.InvalidPieceMoveException;
 import validation.MoveHandler;
 import board.Direction;
-
-import static java.lang.Math.abs;
 
 public class PawnMoveHandler extends MoveHandler {
     @Override
@@ -29,10 +26,7 @@ public class PawnMoveHandler extends MoveHandler {
         validMove=isPawnMove(move,normalMoveDirection,attackRightDirection,attackLeftDirection);
         if(validMove)
             return;
-        if(nextHandler!=null)
-            nextHandler.handleMove( gameVariables, move);
-        else
-            throw new InvalidPieceMoveException();
+        checkForNextHandler(gameVariables,move);
     }
     boolean isPawnMove(Move move,Direction normalMoveDirection,Direction attackRightDirection,Direction attackLeftDirection){
         //normal move

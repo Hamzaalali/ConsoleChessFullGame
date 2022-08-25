@@ -4,7 +4,6 @@ import board.Board;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.InvalidPieceMoveException;
 import validation.MoveHandler;
 import piece.Piece;
 import board.Direction;
@@ -44,10 +43,7 @@ public class CastlingMoveHandler extends MoveHandler {
             board.setPiece(rockFinalXPPosition,endingSquare.getYPosition(),rock);
             return;
         }
-        if(nextHandler!=null)
-            nextHandler.handleMove( gameVariables, move);
-        else
-            throw new InvalidPieceMoveException();
+        checkForNextHandler(gameVariables,move);
     }
     boolean isCastle(GameVariables gameVariables,Move move,int rockXPosition){
         Square endingSquare= move.getEndingSquare();

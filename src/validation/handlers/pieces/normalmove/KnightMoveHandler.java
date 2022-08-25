@@ -3,6 +3,7 @@ package validation.handlers.pieces.normalmove;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
+import exception.InvalidPieceMoveException;
 import validation.MoveHandler;
 import board.Direction;
 
@@ -21,6 +22,6 @@ public class KnightMoveHandler extends MoveHandler {
         if(nextHandler!=null)
             nextHandler.handleMove( gameVariables,move);
         else
-            throw new IllegalArgumentException();
+            throw new InvalidPieceMoveException();
     }
 }
