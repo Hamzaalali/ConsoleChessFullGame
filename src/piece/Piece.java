@@ -45,4 +45,11 @@ public abstract class Piece{
     public void setLastMoveTurn(int lastMoveTurn) {
         this.lastMoveTurn = lastMoveTurn;
     }
+    @Override
+    public String toString(){
+        if(isWhite)
+            return "W"+pieceChar;
+        else
+            return "B"+pieceChar;
+    }
 }

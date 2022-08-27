@@ -124,10 +124,9 @@ public class Board {
                 continue;
             }
             if(piece.isWhite())
-                System.out.print(ConsoleColors.WHITE+'W');
+                System.out.print(ConsoleColors.WHITE+piece+" ");
             else
-                System.out.print(ConsoleColors.BLACK+'B');
-            System.out.print(piece.getPieceChar()+" ");
+                System.out.print(ConsoleColors.BLACK+piece+" ");
         }
         System.out.println();
     }
