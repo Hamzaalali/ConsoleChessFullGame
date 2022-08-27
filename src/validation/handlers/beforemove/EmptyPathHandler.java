@@ -4,7 +4,7 @@ import board.Board;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.NotEmptyPathException;
+import validation.exception.NotEmptyPathException;
 import validation.MoveHandler;
 import board.Direction;
 

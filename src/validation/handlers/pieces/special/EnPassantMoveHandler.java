@@ -16,6 +16,7 @@ public class EnPassantMoveHandler extends MoveHandler {
         Square endingSquare= move.getEndingSquare();
         Board board=gameVariables.getBoard();
         Square enPassantSquare=board.getSquare(endingSquare.getXPosition(),startingSquare.getYPosition());
+        //en passant logic
         if(enPassantSquare.getPiece()==null){
             checkForNextHandler(gameVariables,move);
         }

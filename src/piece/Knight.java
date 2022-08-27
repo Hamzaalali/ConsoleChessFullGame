@@ -3,7 +3,7 @@ import validation.chains.KnightChain;
 public class Knight extends Piece {
     public Knight(boolean isWhite) {
         super(isWhite);
-        baseChain = new KnightChain();
+        pieceChain = new KnightChain();
         pieceChar='N';
     }
 }

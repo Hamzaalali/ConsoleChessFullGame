@@ -4,6 +4,7 @@ import board.Board;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
+import piece.King;
 import validation.MoveHandler;
 import piece.Piece;
 import board.Direction;
@@ -18,13 +19,15 @@ public class CastlingMoveHandler extends MoveHandler {
         if(startingSquare.getPiece().hasMoved()){
             canCastle=false;
         }
-        if(gameVariables.getCurrentPlayer().isInCheck()){
+        King myKing=(King) gameVariables.getCurrentPlayerKing();
+        if(myKing.isInCheck()){
             canCastle=false;
         }
         int rockInitialXPosition =-1;
         int rockFinalXPPosition =-1;
         boolean canCastleToWest=false;
         boolean canCastleToEast=false;
+        //here i will set the values of the castling based on the direction of it
         if(move.getDirection()== Direction.EAST && move.getSteps()==2 && canCastle){
             rockInitialXPosition=8;
             rockFinalXPPosition=endingSquare.getXPosition()-1;

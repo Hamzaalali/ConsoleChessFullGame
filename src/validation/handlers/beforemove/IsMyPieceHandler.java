@@ -3,7 +3,7 @@ package validation.handlers.beforemove;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.CantMoveEnemyPieceException;
+import validation.exception.CantMoveEnemyPieceException;
 import validation.MoveHandler;
 
 public class IsMyPieceHandler  extends MoveHandler {

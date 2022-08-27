@@ -1,8 +1,8 @@
 package chess;
 
 import board.Move;
-import exception.InvalidInputFormatException;
-import exception.PieceDoesntExistException;
+import validation.exception.InvalidInputFormatException;
+import validation.exception.PieceDoesntExistException;
 import piece.Piece;
 import java.util.Objects;
 import java.util.Scanner;
@@ -48,17 +48,17 @@ public class ChessGame {
         if(move.length()<10)
             throw  new InvalidInputFormatException();
         if(!validateMove(move.substring(0,10)))
-            throw  new InvalidInputFormatException();
+            throw  new InvalidInputFormatException();//the move syntax is wrong
         String startingSquareString =move.split(" ")[1];
         String endingSquareString =move.split(" ")[2];
         if(Objects.equals(startingSquareString, endingSquareString))
-            throw  new InvalidInputFormatException();
+            throw  new InvalidInputFormatException(); // starting square is same as ending
         Move newMove=new Move(gameVariables,startingSquareString,endingSquareString);
         Piece movedPiece =newMove.getStartingSquare().getPiece();
         if(movedPiece==null){
             throw new PieceDoesntExistException();
         }
-        movedPiece.getBaseChain().pieceChainHandler(gameVariables, newMove);
+        movedPiece.getPieceChain().pieceChainHandler(gameVariables, newMove);
     }
     public boolean validateMove(String move){
         return move.matches("move [a-h][1-8] [a-h][1-8]");

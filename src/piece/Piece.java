@@ -4,10 +4,9 @@ import validation.BaseChain;
 
 public abstract class Piece{
     final Boolean isWhite;
-    protected BaseChain baseChain;
+    protected BaseChain pieceChain;
     protected char pieceChar;
     private int movesCount;
-
     private int lastMoveTurn;
     public Boolean isWhite() {
         return isWhite;
@@ -25,8 +24,8 @@ public abstract class Piece{
     public void setPieceChar(char pieceChar) {
         this.pieceChar = pieceChar;
     }
-    public BaseChain getBaseChain() {
-        return baseChain;
+    public BaseChain getPieceChain() {
+        return pieceChain;
     }
     public void moved(){
         movesCount++;

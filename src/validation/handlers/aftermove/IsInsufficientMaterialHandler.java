@@ -17,14 +17,14 @@ public class IsInsufficientMaterialHandler extends MoveHandler {
         List<Square> myOccupiedSquares=board.getOccupiedSquares(gameVariables.isWhiteTurn());
         List<Square> enemyOccupiedSquares=board.getOccupiedSquares(!gameVariables.isWhiteTurn());
         boolean insufficientMaterial=true;
-        if(!insufficientMaterial(myOccupiedSquares)){
+        if(!insufficientMaterial(myOccupiedSquares)){//checking for my pieces
             insufficientMaterial=false;
         }
-        if(!insufficientMaterial(enemyOccupiedSquares)){
+        if(!insufficientMaterial(enemyOccupiedSquares)){//checking for enemy pieces
             insufficientMaterial=false;
         }
         if(insufficientMaterial){
-            gameVariables.setGameStatus(GameStatus.INSUFFICIENTMATERIAL);
+            gameVariables.setGameStatus(GameStatus.INSUFFICIENTMATERIAL);// if neither the players have sufficient pieces then draw
         }
         undoTestIfMoveIsDone(gameVariables,move,false);
         if(nextHandler!=null)
@@ -52,7 +52,8 @@ public class IsInsufficientMaterialHandler extends MoveHandler {
                 bishopsCount++;
             }
         }
-        if(knightsCount>0 && bishopsCount>0 ){
+        boolean hasKnightAndBishop=knightsCount>0 && bishopsCount>0;
+        if(hasKnightAndBishop){
             isInsufficient=false;
         }
         if(knightsCount>1 || bishopsCount>1){

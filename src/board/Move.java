@@ -57,6 +57,7 @@ public class Move {
     public Direction getDirection(){
         return  direction;
     }
+    //this method is going to decide which directions the move belongs to
     private void findDirection(){
         boolean isVertical=startingSquare.getXPosition()== endingSquare.getXPosition();
         boolean isHorizontal=startingSquare.getYPosition()== endingSquare.getYPosition();
@@ -80,6 +81,7 @@ public class Move {
         }
         direction=Direction.UNKNOWN;
     }
+    // This methods will save the number of steps the move will take
     private void findSteps(){
         if(direction==Direction.EAST || direction==Direction.WEST){
             steps = Math.abs(startingSquare.getXPosition()- endingSquare.getXPosition());

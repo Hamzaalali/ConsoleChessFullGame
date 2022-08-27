@@ -4,6 +4,7 @@ import board.Board;
 import chess.GameStatus;
 import chess.GameVariables;
 import board.Move;
+import piece.King;
 import validation.MoveHandler;
 
 
@@ -14,10 +15,11 @@ public class IsCheckMateHandler extends MoveHandler {
         Board board=gameVariables.getBoard();
         boolean canBeSaved;
         boolean checkMate=false;
-        if(gameVariables.getCurrentPlayer().isInCheck()){
-            canBeSaved = canMove(gameVariables, board);
+        King myKing=(King) gameVariables.getCurrentPlayerKing();
+        if(myKing.isInCheck()){
+            canBeSaved = canMove(gameVariables, board);//if the enemy king is in check and can move then he will be saved
             if(!canBeSaved)
-                checkMate=true;
+                checkMate=true;// the enemy king will not be saved then it's checkmate
         }
         undoTestIfMoveIsDone(gameVariables,move,true);
         if(checkMate){

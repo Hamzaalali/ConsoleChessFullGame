@@ -6,7 +6,7 @@ import board.Board;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.MoveWIllCheckMyKingException;
+import validation.exception.MoveWIllCheckMyKingException;
 import validation.MoveHandler;
 
 import java.util.List;
@@ -22,12 +22,11 @@ public class  IsMyKingInCheckHandler extends MoveHandler {
         for(Square square:occupiedSquares){
             try{
                 Move testMove=new Move(square,myKingSquare);
-                square.getPiece().getBaseChain().getBeforeMoveHandler().handleMove(gameVariables,testMove);
-                square.getPiece().getBaseChain().getMoveHandler().handleMove(gameVariables,testMove);
-            }catch (Exception e){
-                continue;
+                square.getPiece().getPieceChain().getBeforeMoveHandler().handleMove(gameVariables,testMove);
+                square.getPiece().getPieceChain().getMoveHandler().handleMove(gameVariables,testMove);
+                isCheck=true;// there is an enemy piece that can attack my king if i made the move
+            }catch (Exception ignored){
             }
-            isCheck=true;
         }
         undoTestIfMoveIsDone(gameVariables,move,true);
 

@@ -3,7 +3,7 @@ package validation.handlers.pieces.normalmove;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.InvalidPieceMoveException;
+import validation.exception.InvalidPieceMoveException;
 import validation.MoveHandler;
 import board.Direction;
 

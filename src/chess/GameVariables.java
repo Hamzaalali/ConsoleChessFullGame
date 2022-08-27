@@ -12,9 +12,6 @@ public class GameVariables {
     boolean isWhiteTurn;
     Piece whiteKing;
     Piece blackKing;
-
-
-
     int turnsCount;
     public GameVariables(String whitePlayerName,String blackPlayerName){
         board = new Board();
@@ -60,7 +57,7 @@ public class GameVariables {
     }
     public void virtualNextTurn(){
         isWhiteTurn=!isWhiteTurn;
-    }
+    }// will color but not move the turn to next turn
     public Board getBoard() {
         return board;
     }

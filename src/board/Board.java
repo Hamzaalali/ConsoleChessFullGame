@@ -15,7 +15,7 @@ public class Board {
     public Board(){
         for (int yPosition=1;yPosition<=8;yPosition++){
             for(int xPosition=1;xPosition<=8;xPosition++){
-                squares[yPosition][xPosition]=new Square(xPosition,yPosition);
+                squares[yPosition][xPosition]=new Square(xPosition,yPosition);//initialize board squares to null
             }
         }
     }
@@ -64,6 +64,7 @@ public class Board {
     }
 
     public void initializeBoard(Piece whiteKing,Piece blackKing){
+        // this will initialize all pieces to the board , white and black
         for(int xPosition=1;xPosition<=8;xPosition++){
             setPiece(xPosition,2,new Pawn(true));
             setPiece(xPosition,7,new Pawn(false));
@@ -92,6 +93,7 @@ public class Board {
         printBoard();
     }
     public void printBoard(){
+        //prints the board
         System.out.println("-------------------------------------------------------------------");
         for(int rowNumber=9;rowNumber>=0;rowNumber--){
             if(rowNumber==9 || rowNumber==0){
@@ -137,6 +139,7 @@ public class Board {
         System.out.println();
     }
     public List<Square> getOccupiedSquares(boolean isWhitePieces){
+        //will return all squares that have pieces on them based on the color of the piece
         List<Square>  occupiedSquares=new ArrayList<>();
         for(int x=1;x<=8 ;x++) {
             for (int y = 1; y <= 8; y++) {

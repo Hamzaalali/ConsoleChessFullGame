@@ -3,13 +3,11 @@ package validation.handlers.pieces.special;
 import board.Square;
 import chess.GameVariables;
 import board.Move;
-import exception.InvalidPieceMoveException;
 import validation.MoveHandler;
 import piece.Bishop;
 import piece.Knight;
 import piece.Queen;
 import piece.Rock;
-
 import java.util.Scanner;
 
 public class PawnPromotionHandler extends MoveHandler {
@@ -33,24 +31,24 @@ public class PawnPromotionHandler extends MoveHandler {
         boolean flag=false;
         String promotion=scanner.nextLine();
         while(!flag){
-            switch (promotion) {
-                case "x" -> flag = true;
-                case "1" -> {
-                    move.setStartingSquarePiece(new Bishop(gameVariables.isWhiteTurn()));
-                    flag = true;
-                }
-                case "2" -> {
-                    move.setStartingSquarePiece(new Knight(gameVariables.isWhiteTurn()));
-                    flag = true;
-                }
-                case "3" -> {
-                    move.setStartingSquarePiece(new Rock(gameVariables.isWhiteTurn()));
-                    flag = true;
-                }
-                case "4" -> {
-                    move.setStartingSquarePiece(new Queen(gameVariables.isWhiteTurn()));
-                    flag = true;
-                }
+            if(promotion.equals("1")){
+                move.setStartingSquarePiece(new Bishop(gameVariables.isWhiteTurn()));
+                flag = true;
+            }
+            if(promotion.equals("2")){
+                move.setStartingSquarePiece(new Knight(gameVariables.isWhiteTurn()));
+                flag = true;
+            }
+            if(promotion.equals("3")){
+                move.setStartingSquarePiece(new Rock(gameVariables.isWhiteTurn()));
+                flag = true;
+            }
+            if(promotion.equals("4")){
+                move.setStartingSquarePiece(new Queen(gameVariables.isWhiteTurn()));
+                flag = true;
+            }
+            if(promotion.equals("X") || promotion.equals("x")){
+               flag=true;
             }
         }
     }

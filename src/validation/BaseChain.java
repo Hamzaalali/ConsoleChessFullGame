@@ -7,7 +7,7 @@ import validation.handlers.aftermove.*;
 import validation.handlers.beforemove.EmptyPathHandler;
 import validation.handlers.beforemove.IsMyKingInCheckHandler;
 import validation.handlers.beforemove.IsMyPieceHandler;
-import validation.handlers.beforemove.NotAttackingAlly;
+import validation.handlers.beforemove.NotAttackingAllyHandler;
 
 public abstract class BaseChain {
 
@@ -23,9 +23,9 @@ public abstract class BaseChain {
     }
 
     protected BaseChain(){
-        beforeMoveHandler =new IsMyPieceHandler();
-        beforeMoveHandler.setNext(new NotAttackingAlly()).setNext(new EmptyPathHandler()). setNext(new IsMyKingInCheckHandler());
-        afterMoveHandler = new IsEnemyKingCheckHandler();
+        beforeMoveHandler =new IsMyPieceHandler();//will be checked before the move
+        beforeMoveHandler.setNext(new NotAttackingAllyHandler()).setNext(new EmptyPathHandler()). setNext(new IsMyKingInCheckHandler());
+        afterMoveHandler = new IsEnemyKingCheckHandler();//will be checked after the move
         afterMoveHandler.setNext(new IsCheckMateHandler()).setNext(new IsStalemateHandler()).setNext(new IsInsufficientMaterialHandler()).setNext(new CompleteTheMoveHandler());
     }
     public MoveHandler getMoveHandler() {
